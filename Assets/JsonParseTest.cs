@@ -112,7 +112,7 @@ public class JsonParseTest : MonoBehaviour
                         text += "BPM : " + val + "\n";
                         break;
                     case "71":
-                        //Temperature (Battements par minute)
+                        //Temperature
                         string dizaine = val.Substring(0, 2);
                         string unite = val.Substring(2, 1);
                         text += "Temperature : " + Math.Round(Convert.ToDouble(dizaine + "." + unite), 1) + "\n";

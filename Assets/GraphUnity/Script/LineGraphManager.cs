@@ -28,13 +28,11 @@ public class LineGraphManager : MonoBehaviour {
 	public List<GraphData> graphDataPlayer1 = new List<GraphData>();
 
 	private GraphData gd;
-    private GraphData gd2;
-    private float highestValue = 40;
+    private float highestValue = 150;
 
 	public Transform origin;
 
 	public TextMesh player1name;
-	public TextMesh player2name;
 
 	private float lrWidth = 0.2f;
 	private int dataGap = 0;
@@ -44,9 +42,9 @@ public class LineGraphManager : MonoBehaviour {
     private JsonData itemData;
     private string data;
     private string JSONdata;
-	
-    private List<double> Templist = new List<double> { };
-	private List<double> Templistupdate = new List<double> { };
+
+    private List<string> Templist = new List<string> { };
+	private List<string> Templistupdate = new List<string> { };
     private List<DateTime> ListTime = new List<DateTime> { };
 
     IEnumerator Start(){
@@ -67,9 +65,9 @@ public class LineGraphManager : MonoBehaviour {
         int index = Templist.Count;
         for (int i = 0; i < index; i++)
         {
-            Debug.Log((float)Templist[i]);
+            Debug.Log(Templist[i]);
             GraphData gd = new GraphData();
-            gd.marbles = (float)Templist[i];
+			gd.marbles = float.Parse(Templist[i]);
             graphDataPlayer1.Add(gd);
 
         }
@@ -113,15 +111,15 @@ public class LineGraphManager : MonoBehaviour {
         int index = Templist.Count;
         for (int i = 0; i < index; i++)
         {
-            Debug.Log((float)Templist[i]);
+            Debug.Log(Templist[i]);
             GraphData gd = new GraphData();
-            gd.marbles = (float)Templist[i];
+			gd.marbles = float.Parse(Templist[i]);
             graphDataPlayer1.Add(gd);
 
         }
         // Montrer le graphique
         ShowGraph();
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(20);
         StartCoroutine(UpdateScreen());
     }
 
@@ -175,11 +173,9 @@ public class LineGraphManager : MonoBehaviour {
                 double time = itemData["body"]["measuregrps"][i]["date"].GetNatural();
 
 
-                if (type == "71")
+                if (type == "11")
                 {
-                    string dizaine = val.Substring(0, 2);
-                    string unite = val.Substring(2, 1);
-                    Templist.Add(Math.Round(Convert.ToDouble(dizaine + "." + unite), 1));
+                    Templist.Add(val);
                     ListTime.Add(TradTime(time));
                 }
 
@@ -238,8 +234,8 @@ public class LineGraphManager : MonoBehaviour {
             // so that we get a value less than or equals to 1 and than we can multiply that
             // number with Y axis range to fit in graph. 
             // e.g. marbles = 90, highest = 90 so 90/90 = 1 and than 1*7 = 7 so for 90, Y = 7
-            Debug.Log(Convert.ToSingle(Math.Round(((gdlist[i].marbles / highestValue) * 33) - 26.7f, 2)));
-            gdlist[i].marbles = Convert.ToSingle(Math.Round(((gdlist[i].marbles / highestValue) * 33) - 26.7f, 2));
+            Debug.Log(Convert.ToSingle(Math.Round(((gdlist[i].marbles / highestValue) * 11) - 2f, 2)));
+			gdlist[i].marbles = Convert.ToSingle(Math.Round(((gdlist[i].marbles / highestValue) * 10) -3.35, 2));
 
 
         }
