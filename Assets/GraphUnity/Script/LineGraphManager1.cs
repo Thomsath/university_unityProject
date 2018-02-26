@@ -9,7 +9,7 @@ using System.Linq;
 using System.Diagnostics;
 using UnityEngine.Video;
 
-public class LineGraphManager : MonoBehaviour {
+public class LineGraphManager1 : MonoBehaviour {
 
     // Public 
 	public GameObject linerenderer;
@@ -36,7 +36,7 @@ public class LineGraphManager : MonoBehaviour {
 
 	public TextMesh player1name;
 
-    public VideoPlayer Movie;
+    //public VideoPlayer Movie;
 
     // Private
 
@@ -88,10 +88,10 @@ public class LineGraphManager : MonoBehaviour {
         //TradTime(1518430929);
         //if(!Movie.isPlaying)
 
-        if (!Movie.isPlaying)
-        {
+        /*if (!Movie.isPlaying)
+        {*/
             ShowGraph();
-            GameObject[] b = GameObject.FindGameObjectsWithTag("Graphel");
+         /*   GameObject[] b = GameObject.FindGameObjectsWithTag("Graphel");
             List<Renderer> Listrenderer = new List<Renderer>() { };
             foreach (GameObject point in b)
             {
@@ -129,7 +129,7 @@ public class LineGraphManager : MonoBehaviour {
             }
         }
 
-        //Listtime =
+        //Listtime =*/
         yield return StartCoroutine(UpdateScreen());
         
     }
@@ -171,10 +171,10 @@ public class LineGraphManager : MonoBehaviour {
 
         }
         // Montrer le graphique
-        if (!Movie.isPlaying)
-        {
+        /*if (!Movie.isPlaying)
+        {*/
             ShowGraph();
-            GameObject[] b = GameObject.FindGameObjectsWithTag("Graphel");
+            /*GameObject[] b = GameObject.FindGameObjectsWithTag("Graphel");
             List<Renderer> Listrenderer = new List<Renderer>() { };
             foreach (GameObject point in b)
             {
@@ -210,7 +210,7 @@ public class LineGraphManager : MonoBehaviour {
             {
                 g.enabled = false;
             }
-        }
+        }*/
         yield return null;
         StartCoroutine(UpdateScreen());
     }
@@ -420,9 +420,9 @@ public class LineGraphManager : MonoBehaviour {
 			lineRenderer.SetVertexCount(2);
 
 
-            if (Movie.isPlaying)
-            {
-                lineRenderer.enabled = false;
+            //if (Movie.isPlaying)
+            //{
+             //   lineRenderer.enabled = false;
                 /*Renderer[] a = holder.GetComponentsInChildren<Renderer>();
                 foreach (Renderer r in a)
                 {
@@ -430,10 +430,10 @@ public class LineGraphManager : MonoBehaviour {
                 }*/
 
 
-            }
-            else
-            {
-                lineRenderer.enabled = true;
+           // }
+           // else
+            //{
+             //   lineRenderer.enabled = true;
                 /*Renderer[] a = holder.GetComponentsInChildren<Renderer>();
                 foreach (Renderer r in a)
                 {
@@ -443,8 +443,8 @@ public class LineGraphManager : MonoBehaviour {
 
 
 
-            }
-
+            //}
+			//*/
 
             while (Vector3.Distance(p.transform.position,endpoint) > 0.2f)
 			{
