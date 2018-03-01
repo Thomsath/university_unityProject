@@ -64,7 +64,7 @@ public class LineGraphManager : MonoBehaviour {
     private string timestring;
     private GraphData gd;
     //private GraphData gd2;
-    private float highestValue = 40;
+    private double highestValue = 40.3;
 
     private string JSONString;
     private JsonData itemData;
@@ -376,8 +376,8 @@ public class LineGraphManager : MonoBehaviour {
             // so that we get a value less than or equals to 1 and than we can multiply that
             // number with Y axis range to fit in graph. 
             // e.g. marbles = 90, highest = 90 so 90/90 = 1 and than 1*7 = 7 so for 90, Y = 7
-            //Debug.Log(Convert.ToSingle(Math.Round(((gdlist[i].marbles / highestValue) * 33) - 26.7f, 2)));
-            gdlist[i].marbles = Convert.ToSingle(Math.Round(((gdlist[i].marbles / highestValue) * 33) - 26.7f, 2));
+			//UnityEngine.Debug.Log(gdlist[i].marbles + " : " + Convert.ToSingle(Math.Round(((gdlist[i].marbles / highestValue) * 56f) - 49.11f, 2)));
+			gdlist[i].marbles = Convert.ToSingle(Math.Round(((gdlist[i].marbles / highestValue) * 56f) - 49.5f, 2));
 
 
         }
